@@ -1,41 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped
-with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## How to sign in to an account
 
-## Getting Started
+### 1. [Go to localhost:3000/auth/sign-up](http://localhost:3000/auth/sign-in)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### 2. Type in your username 
+![Step 2 screenshot](https://images.tango.us/public/screenshot_4c36f9b2-199d-48d3-8d26-041e6d1943ea.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.2408&fp-z=1.5451&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1420)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### 3. Type in your password
+![Step 3 screenshot](https://images.tango.us/public/screenshot_0249d509-d2af-404a-947e-38bf2a70ccad.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.3627&fp-z=1.5451&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1420)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed
-on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited
-in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated
-as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 4. Click on Sign In
+![Step 4 screenshot](https://images.tango.us/public/screenshot_1c53eeae-4d56-4300-81d0-0ae66b657f7d.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.4415&fp-z=1.5451&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1420)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## How to sign up for an account
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions
-are welcome!
+### 1. [Go to localhost:3000/auth/sign-up](http://localhost:3000/auth/sign-up) or click on the sign-up link to see the page
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use
-the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-from the creators of Next.js.
+![Step 2 screenshot](https://images.tango.us/public/screenshot_35c6834e-fd90-467c-b56e-1c8e42428587.png?crop=focalpoint&fit=crop&fp-x=0.4688&fp-y=0.4866&fp-z=3.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1420)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### 3. Type in your username
+![Step 3 screenshot](https://images.tango.us/public/screenshot_956358ae-4808-4098-b0e0-f865b7fef357.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.2408&fp-z=1.5451&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1420)
+
+
+### 4. Type in your full name
+![Step 4 screenshot](https://images.tango.us/public/screenshot_9963e70f-3fa9-44c9-baf5-79baba7c5870.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.3627&fp-z=1.5451&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1420)
+
+
+### 5. Type in your email address
+![Step 5 screenshot](https://images.tango.us/public/screenshot_fdf87fba-e4a5-423b-87a7-fc82edbb4d70.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.4845&fp-z=1.5451&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1420)
+
+
+### 6. Type in your password
+![Step 6 screenshot](https://images.tango.us/public/screenshot_5f309893-af24-4adf-b3a6-81c38a438984.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.6063&fp-z=1.5451&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1420)
+
+
+### 7. Click on Sign Up
+![Step 7 screenshot](https://images.tango.us/public/screenshot_5ab8573f-a9f3-4b68-b0c3-2f2b5602deb0.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.6852&fp-z=1.5451&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1420)
+
+
+### 8. Type in the confirmation code sent to your email address
+![Step 8 screenshot](https://images.tango.us/public/screenshot_e5d64d81-2db7-4526-8a53-08649f163afa.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.3176&fp-z=1.5929&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1420)
+
+
+### 9. Click on OK
+![Step 9 screenshot](https://images.tango.us/public/screenshot_aa5cc93d-6229-40f8-98bc-1860be044e97.png?crop=focalpoint&fit=crop&fp-x=0.6516&fp-y=0.4458&fp-z=2.8980&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1420)
+
+
+### 10. If the confirmation code is valid, a success message will be displayed. Click on OK
+![Step 10 screenshot](https://images.tango.us/public/screenshot_9c54742b-edf5-4264-a00b-bb4451180912.png?crop=focalpoint&fit=crop&fp-x=0.6043&fp-y=0.3162&fp-z=2.8980&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1420)
