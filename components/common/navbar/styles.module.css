@@ -1,0 +1,14 @@
+.header {
+    position: fixed;
+    z-index: 1;
+    width: 100%
+}
+
+.logo {
+    float: left;
+    margin-right: 2rem;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.125rem;
+}

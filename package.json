@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "antd": "^4.20.5",
+    "aws-amplify": "^4.3.22",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "recoil": "^0.7.3-alpha.2"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
@@ -20,5 +24,11 @@
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
     "typescript": "4.6.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:hnguyen110/Fragments-UI.git"
+  },
+  "author": "Hien Dao The Nguyen",
+  "license": "UNLICENSED"
 }
