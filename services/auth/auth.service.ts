@@ -1,6 +1,6 @@
 import {Auth} from "aws-amplify";
 
-async function getUser() {
+export async function isAuthenticated() {
     try {
         const currentAuthenticatedUser = await Auth.currentAuthenticatedUser();
         const username = currentAuthenticatedUser.username;
@@ -21,5 +21,3 @@ async function getUser() {
         return null;
     }
 }
-
-export {Auth, getUser};
