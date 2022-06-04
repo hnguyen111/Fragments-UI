@@ -3,13 +3,16 @@ import {useEffect, useState} from "react";
 import {isAuthenticated} from "../services/auth/auth.service";
 import Link from "next/link";
 import {Auth} from "aws-amplify";
-import User from "../types/fragments/user.type";
 import {getUserFragments} from "../services/fragments/fragments.service";
+import FragmentModal from "../components/dashboard/fragment/fragment-modal/fragment-modal";
+import {useRecoilState} from "recoil";
+import accountState from "../stores/authentication/account.state";
 
 const {Title} = Typography;
 
 export default function Index() {
-    const [account, setAccount] = useState(null as User | null);
+    const [account, setAccount] = useRecoilState(accountState);
+    const [visible, setVisible] = useState(false);
 
     useEffect(() => {
         isAuthenticated()
@@ -19,11 +22,10 @@ export default function Index() {
             .catch((e) => {
 
             });
-    }, []);
-
-    console.log(account);
+    }, [setAccount]);
 
     return <div>
+        <FragmentModal visible={visible} setVisible={setVisible}/>
         {account !== null ? (
             <Title level={3}>{`Welcome back ${account.username}`}</Title>
         ) : (
@@ -53,6 +55,12 @@ export default function Index() {
                 }
             }}>
                 Load Fragments Data
+            </Button>
+
+            <Button disabled={account === null} type="primary" onClick={() => {
+                setVisible(true);
+            }}>
+                Create New Fragment
             </Button>
         </Space>
     </div>;
