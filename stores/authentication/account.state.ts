@@ -1,5 +1,5 @@
 import {atom} from "recoil";
-import User from "../../types/fragments/user.type";
+import User from "../../types/authentication/user.type";
 
 const accountState = atom<User | null>({
     key: "accountState",

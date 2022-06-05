@@ -1,6 +1,7 @@
 import {Button, Form, Input, Typography} from "antd";
 import ErrorModal from "../../../common/modal/error-modal/error-modal";
 import Link from "next/link";
+import {useState} from "react";
 
 const {Title} = Typography;
 
@@ -10,13 +11,18 @@ interface Props {
 }
 
 export default function SignInForm({form, onFinish}: Props) {
+    const [loading, setLoading] = useState(false);
+
     return <Form
         layout="vertical"
         form={form}
         onFinish={async (data) => {
             try {
+                setLoading(true);
                 await onFinish(data);
+                setLoading(false);
             } catch (e: any) {
+                setLoading(false);
                 ErrorModal({
                     title: "Sign In",
                     content: e.message ?? "There was an error while creating your account, please try again later",
@@ -64,6 +70,7 @@ export default function SignInForm({form, onFinish}: Props) {
         {onFinish ? (
             <Form.Item noStyle>
                 <Button
+                    loading={loading}
                     block
                     type="primary"
                     htmlType="submit"

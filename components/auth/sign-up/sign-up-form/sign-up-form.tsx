@@ -13,6 +13,7 @@ interface Props {
 
 export default function SignUpForm({form, onFinish}: Props) {
     const [visible, setVisible] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [username, setUsername] = useState("");
 
     return <Form
@@ -20,9 +21,12 @@ export default function SignUpForm({form, onFinish}: Props) {
         form={form}
         onFinish={async (data) => {
             try {
+                setLoading(true);
                 await onFinish(data);
                 setVisible(true);
+                setLoading(false);
             } catch (e: any) {
+                setLoading(false);
                 ErrorModal({
                     title: "Sign Up",
                     content: e.message ?? "There was an error while creating your account, please try again later",
@@ -100,6 +104,7 @@ export default function SignUpForm({form, onFinish}: Props) {
         {onFinish ? (
             <Form.Item noStyle>
                 <Button
+                    loading={loading}
                     block
                     type="primary"
                     htmlType="submit"
