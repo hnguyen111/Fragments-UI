@@ -41,6 +41,7 @@ export async function createFragment(account: User, contentType: string, body: a
         headers: account.authorizationHeaders(contentType),
         body: body
     });
+    console.log(response);
     if (!response.ok) {
         return new Error(`${response.status} ${response.statusText}`);
     } else {

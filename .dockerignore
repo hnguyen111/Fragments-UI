@@ -1,0 +1,10 @@
+.idea/
+.git/
+.github/
+.vscode/
+node_modules/
+.next/
+.env
+.eslintrc.json
+.gitignore
+README.md
