@@ -4,7 +4,7 @@ services:
     image: ${DOCKER_REPO}:${DOCKER_TAG}
     init: true
     ports:
-      - "80:8080"
+      - "80:80"
     environment:
       - NODE_ENV=production
       - API_URL
