@@ -9,12 +9,13 @@ import {useRouter} from "next/router";
 import {Auth} from "aws-amplify";
 import {LoadingOutlined} from "@ant-design/icons";
 import {isAuthenticated} from "../services/auth/auth.service";
+import fragmentModalVisibilityState from "../stores/dashboard/fragment/fragment-modal-visibility.state";
 
 
 export default function Index() {
     const [loading, setLoading] = useState(true);
     const [account, setAccount] = useRecoilState(accountState);
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useRecoilState(fragmentModalVisibilityState);
     const [fragments] = useRecoilStateLoadable(fragmentGetAllState);
     const router = useRouter();
 
@@ -34,7 +35,7 @@ export default function Index() {
     }, [router, setAccount]);
 
     return !loading ? <div>
-        <FragmentModal visible={visible} setVisible={setVisible}/>
+        <FragmentModal/>
         <Card title="Fragments" extra={
             <Space>
                 <Button loading={fragments.state !== "hasValue"} disabled={account === null} type="primary"
