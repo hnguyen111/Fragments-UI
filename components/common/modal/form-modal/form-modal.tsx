@@ -1,8 +1,7 @@
 import {Modal} from "antd";
-import {useRecoilState} from "recoil";
-import fragmentModalVisibilityState from "../../../../stores/dashboard/fragment/fragment-modal-visibility.state";
 
 interface Props {
+    visible: any,
     title: string;
     confirmLoading: boolean;
     handleOk: any;
@@ -11,9 +10,15 @@ interface Props {
     style?: any;
 }
 
-export default function FormModal({title, confirmLoading, handleOk, handleCancel, body, style}: Props) {
-    const [visible] = useRecoilState(fragmentModalVisibilityState);
-
+export default function FormModal({
+                                      visible,
+                                      title,
+                                      confirmLoading,
+                                      handleOk,
+                                      handleCancel,
+                                      body,
+                                      style
+                                  }: Props) {
     return <Modal
         visible={visible}
         style={style}

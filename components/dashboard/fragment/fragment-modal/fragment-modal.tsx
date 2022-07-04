@@ -70,10 +70,13 @@ export default function FragmentModal() {
         setFragment(null);
     };
 
-    return fragments.state === "hasValue" ? <FormModal
-        title={fragment ? "Update Fragment" : "Create Fragment"}
-        confirmLoading={loading}
-        handleOk={handleOk}
-        handleCancel={handleCancel}
-        body={<FragmentForm account={account!} form={form}/>}/> : null;
+    return fragments.state === "hasValue"
+        ? <FormModal
+            visible={visible}
+            title={fragment ? "Update Fragment" : "Create Fragment"}
+            confirmLoading={loading}
+            handleOk={handleOk}
+            handleCancel={handleCancel}
+            body={<FragmentForm account={account!} form={form}/>}
+        /> : null;
 }
