@@ -9,23 +9,21 @@ import accountState from "../../../../stores/authentication/account.state";
 import SuccessModal from "../../../common/modal/success-modal/success-modal";
 import fragmentGetAllState from "../../../../stores/dashboard/fragment/fragment-get-all.state";
 import Fragment from "../../../../types/dashboard/fragments/fragment.type";
+import fragmentModalVisibilityState from "../../../../stores/dashboard/fragment/fragment-modal-visibility.state";
+import fragmentUpdateState from "../../../../stores/dashboard/fragment/fragment-update.state";
 
-interface Props {
-    fragment?: Fragment,
-    visible: any,
-    setVisible: any
-}
-
-export default function FragmentModal({fragment, visible, setVisible}: Props) {
+export default function FragmentModal() {
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(false);
     const [account] = useRecoilState(accountState);
+    const [visible, setVisible] = useRecoilState(fragmentModalVisibilityState);
+    const [fragment, setFragment] = useRecoilState(fragmentUpdateState);
     const [fragments, setFragments] = useRecoilStateLoadable(fragmentGetAllState);
 
     const handleOk = () => {
         setLoading(true);
         form.validateFields()
-            .then(async ({data}) => {
+            .then(async ({type, data}) => {
                 try {
                     if (fragment) {
                         const response = await updateFragment(account as any, fragment.id, fragment.type, data);
@@ -40,7 +38,7 @@ export default function FragmentModal({fragment, visible, setVisible}: Props) {
                             }
                         }));
                     } else {
-                        const response = await createFragment(account as any, "text/plain", data);
+                        const response = await createFragment(account as any, type, data);
                         setFragments([...fragments.contents, response.fragment]);
                     }
                     SuccessModal({
@@ -48,6 +46,9 @@ export default function FragmentModal({fragment, visible, setVisible}: Props) {
                         content: "The fragment information has been saved",
                         onOk: () => {
                             form.resetFields();
+                            form.setFieldsValue({
+                                type: "text/plain"
+                            });
                             setLoading(false);
                             setVisible(false);
                         }
@@ -66,14 +67,16 @@ export default function FragmentModal({fragment, visible, setVisible}: Props) {
 
     const handleCancel = () => {
         setVisible(false);
+        setFragment(null);
     };
 
-    return fragments.state === "hasValue" ? <FormModal
-        title={fragment ? "Update Fragment" : "Create Fragment"}
-        visible={visible}
-        confirmLoading={loading}
-        setVisible={setVisible}
-        handleOk={handleOk}
-        handleCancel={handleCancel}
-        body={<FragmentForm fragment={fragment} form={form}/>}/> : null;
+    return fragments.state === "hasValue"
+        ? <FormModal
+            visible={visible}
+            title={fragment ? "Update Fragment" : "Create Fragment"}
+            confirmLoading={loading}
+            handleOk={handleOk}
+            handleCancel={handleCancel}
+            body={<FragmentForm account={account!} form={form}/>}
+        /> : null;
 }

@@ -1,16 +1,17 @@
 import {Button, Table} from "antd";
-import {useRecoilStateLoadable} from "recoil";
+import {useRecoilState, useRecoilStateLoadable} from "recoil";
 import fragmentGetAllState from "../../../../stores/dashboard/fragment/fragment-get-all.state";
 import moment from "moment";
 import DeleteFragmentPopconfirm from "./delete-fragment-popconfirm/delete-fragment-popconfirm";
 import FragmentModal from "../fragment-modal/fragment-modal";
-import {useState} from "react";
 import Fragment from "../../../../types/dashboard/fragments/fragment.type";
+import fragmentModalVisibilityState from "../../../../stores/dashboard/fragment/fragment-modal-visibility.state";
+import fragmentUpdateState from "../../../../stores/dashboard/fragment/fragment-update.state";
 
 export default function FragmentTable() {
     const [fragments] = useRecoilStateLoadable(fragmentGetAllState);
-    const [visible, setVisible] = useState(false);
-    const [selectedFragment, setSelectedFragment] = useState(null as Fragment | null);
+    const [visible, setVisible] = useRecoilState(fragmentModalVisibilityState);
+    const [selectedFragment, setSelectedFragment] = useRecoilState(fragmentUpdateState);
 
     const columns = [
         {
@@ -65,7 +66,7 @@ export default function FragmentTable() {
     ];
 
     return fragments.state === "hasValue" ? <div>
-        <FragmentModal fragment={selectedFragment as any} visible={visible} setVisible={setVisible}/>
+        <FragmentModal/>
         <Table
             scroll={{x: "max-content"}}
             columns={columns}

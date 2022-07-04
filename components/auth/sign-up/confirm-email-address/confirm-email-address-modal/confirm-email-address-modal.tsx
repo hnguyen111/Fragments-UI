@@ -51,12 +51,12 @@ export default function ConfirmEmailAddressModal({username, visible, setVisible}
         setVisible(false);
     };
 
-    return <FormModal title="Confirm Email Address"
-                      visible={visible}
-                      confirmLoading={loading}
-                      setVisible={setVisible}
-                      handleOk={handleOk}
-                      handleCancel={handleCancel}
-                      body={<ConfirmEmailAddressForm form={form}/>}
+    return <FormModal
+        visible={visible}
+        title="Confirm Email Address"
+        confirmLoading={loading}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
+        body={<ConfirmEmailAddressForm form={form}/>}
     />;
 }

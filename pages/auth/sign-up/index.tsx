@@ -3,8 +3,7 @@ import {Auth} from "aws-amplify";
 import {useEffect, useState} from "react";
 import {isAuthenticated} from "../../../services/auth/auth.service";
 import {useRouter} from "next/router";
-import {Skeleton, Space, Spin} from "antd";
-import {LoadingOutlined} from "@ant-design/icons";
+import {Skeleton} from "antd";
 
 export default function Index() {
     const router = useRouter();
@@ -40,10 +39,6 @@ export default function Index() {
     return !loading ? <div style={{margin: "auto", maxWidth: 500, marginTop: "5rem"}}>
         <SignUpForm onFinish={onFinish}/>
     </div> : <div>
-        <Space align={"start"}>
-            <Spin indicator={<LoadingOutlined style={{fontSize: 24}} spin/>}/>
-            <p>Loading...</p>
-        </Space>
         <Skeleton active/>
         <Skeleton active/>
         <Skeleton active/>
