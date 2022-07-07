@@ -7,17 +7,26 @@ import FragmentModal from "../fragment-modal/fragment-modal";
 import Fragment from "../../../../types/dashboard/fragments/fragment.type";
 import fragmentModalVisibilityState from "../../../../stores/dashboard/fragment/fragment-modal-visibility.state";
 import fragmentUpdateState from "../../../../stores/dashboard/fragment/fragment-update.state";
+import FragmentContentModal from "../fragment-content-modal/fragment-content-modal";
+import fragmentContentModalVisibilityState
+    from "../../../../stores/dashboard/fragment/fragment-content-modal-visibility.state";
 
 export default function FragmentTable() {
     const [fragments] = useRecoilStateLoadable(fragmentGetAllState);
-    const [visible, setVisible] = useRecoilState(fragmentModalVisibilityState);
-    const [selectedFragment, setSelectedFragment] = useRecoilState(fragmentUpdateState);
+    const [, setVisible] = useRecoilState(fragmentModalVisibilityState);
+    const [, setFragmentContentModalVisible] = useRecoilState(fragmentContentModalVisibilityState);
+    const [, setSelectedFragment] = useRecoilState(fragmentUpdateState);
 
     const columns = [
         {
             title: "Id",
-            dataIndex: "id",
-            key: "id",
+            key: "action",
+            render: (target: Fragment) => {
+                return <Button onClick={() => {
+                    setSelectedFragment(target);
+                    setFragmentContentModalVisible(true);
+                }} type="link">{target.id}</Button>;
+            }
         },
         {
             title: "Created At",
@@ -66,6 +75,7 @@ export default function FragmentTable() {
     ];
 
     return fragments.state === "hasValue" ? <div>
+        <FragmentContentModal/>
         <FragmentModal/>
         <Table
             scroll={{x: "max-content"}}
