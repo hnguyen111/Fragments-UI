@@ -31,7 +31,7 @@ export async function getFragmentData(account: User, id: string, extension = "")
     if (!response.ok) {
         return new Error(`${response.status} ${response.statusText}`);
     } else {
-        return await response.json();
+        return response.blob();
     }
 }
 
