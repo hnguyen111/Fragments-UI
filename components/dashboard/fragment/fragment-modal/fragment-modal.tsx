@@ -49,6 +49,11 @@ export default function FragmentModal() {
                             form.setFieldsValue({
                                 type: "text/plain"
                             });
+                            form.resetFields();
+                            form.setFieldsValue({
+                                type: "text/plain"
+                            });
+                            setFragment(null);
                             setLoading(false);
                             setVisible(false);
                         }
@@ -66,8 +71,8 @@ export default function FragmentModal() {
     };
 
     const handleCancel = () => {
-        setVisible(false);
         setFragment(null);
+        setVisible(false);
     };
 
     return fragments.state === "hasValue"

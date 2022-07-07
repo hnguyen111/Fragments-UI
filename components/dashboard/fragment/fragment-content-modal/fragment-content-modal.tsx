@@ -5,15 +5,20 @@ import {useRecoilState} from "recoil";
 import fragmentContentModalVisibilityState
     from "../../../../stores/dashboard/fragment/fragment-content-modal-visibility.state";
 import accountState from "../../../../stores/authentication/account.state";
+import fragmentUpdateState from "../../../../stores/dashboard/fragment/fragment-update.state";
 
 export default function FragmentContentModal() {
     const [account] = useRecoilState(accountState);
     const [visible, setVisible] = useRecoilState(fragmentContentModalVisibilityState);
+    const [, setFragment] = useRecoilState(fragmentUpdateState);
     const [loading] = useState(false);
 
-    const handleOk = () => {};
+    const handleOk = () => {
+        setVisible(false);
+    };
 
     const handleCancel = () => {
+        setFragment(null);
         setVisible(false);
     };
 
