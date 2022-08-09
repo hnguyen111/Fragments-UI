@@ -107,7 +107,7 @@ export default function FragmentForm({account, form, onFinish}: Props) {
                                 "image/gif",
                             ];
                             if (!types.includes(file.type)) {
-                                message.error("The content type is not supported")
+                                message.error("The content type is not supported");
                             }
                             return types.includes(file.type);
                         },
