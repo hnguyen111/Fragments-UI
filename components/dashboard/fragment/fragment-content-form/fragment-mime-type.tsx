@@ -5,14 +5,16 @@ import fragmentMimeTypeState from "../../../../stores/dashboard/fragment/fragmen
 const {Option} = Select;
 
 interface Props {
+    id: string | undefined,
     defaultValue: string,
     types: string[];
 }
 
-export default function FragmentMimeType({defaultValue, types}: Props) {
+export default function FragmentMimeType({id, defaultValue, types}: Props) {
     const [, setType] = useRecoilState(fragmentMimeTypeState);
 
     return <Select
+        id={id}
         defaultValue={defaultValue}
         onChange={(value) => {setType(value);}}
         style={{width: "100%"}}

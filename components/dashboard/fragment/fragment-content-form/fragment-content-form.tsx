@@ -25,12 +25,11 @@ export default function FragmentContentForm({account}: Props) {
     return (
         <Form layout={"vertical"}>
             <Form.Item name="type" label="Content Type">
-                {fragment
-                    ? <FragmentMimeType
-                        defaultValue={fragment?.type as string}
-                        types={types}
-                    />
-                    : null}
+                {fragment?.id ? <FragmentMimeType
+                    id={fragment?.id}
+                    defaultValue={fragment?.type as string}
+                    types={types}
+                /> : null}
             </Form.Item>
 
             <Form.Item label="Fragment Data">
