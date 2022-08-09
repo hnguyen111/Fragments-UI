@@ -26,7 +26,7 @@ export default function FragmentData({account}: Props) {
                     if (!fragment?.type?.startsWith("image")) {
                         setTimeout(async () => {
                             form.setFieldsValue({
-                                data: await blob.text(),
+                                data: await blob?.text() ?? "",
                             });
                             setLoading(false);
                         }, 500);

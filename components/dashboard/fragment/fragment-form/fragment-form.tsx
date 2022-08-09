@@ -49,7 +49,7 @@ export default function FragmentForm({account, form, onFinish}: Props) {
             ]}
         >
             <Select onChange={value => {setType(value);}}
-                    disabled={fragment !== null}
+                    disabled={fragment !== null || option === 1}
                     style={{width: "100%"}}
             >
                 <Option value="text/plain">text/plain</Option>
@@ -91,6 +91,7 @@ export default function FragmentForm({account, form, onFinish}: Props) {
                     <Dragger {...{
                         name: "file",
                         multiple: false,
+                        accept: fragment?.type,
                         action: fragment ? `${process.env.API_URL}/v1/fragments/file/${fragment.id}` : `${process.env.API_URL}/v1/fragments/file`,
                         method: fragment ? "PUT" : "POST",
                         headers: account.authorizationHeaders(null, true),
