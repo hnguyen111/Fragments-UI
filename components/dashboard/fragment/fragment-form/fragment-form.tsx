@@ -91,9 +91,9 @@ export default function FragmentForm({account, form, onFinish}: Props) {
                     <Dragger {...{
                         name: "file",
                         multiple: false,
-                        action: fragment ? `${process.env.API_URL}/v1/fragments/${fragment.id}` : `${process.env.API_URL}/v1/fragments`,
+                        action: fragment ? `${process.env.API_URL}/v1/fragments/file/${fragment.id}` : `${process.env.API_URL}/v1/fragments/file`,
                         method: fragment ? "PUT" : "POST",
-                        headers: account.authorizationHeaders(type),
+                        headers: account.authorizationHeaders(null, true),
                         async onChange(info) {
                             const {status} = info.file;
                             if (status === "done") {

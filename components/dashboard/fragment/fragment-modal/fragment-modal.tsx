@@ -26,6 +26,7 @@ export default function FragmentModal() {
             .then(async ({type, data}) => {
                 try {
                     if (fragment) {
+                        console.log("UPDATING FRAGMENT");
                         const response = await updateFragment(account as any, fragment.id, fragment.type, data);
                         setFragments(fragments.contents.map((e: Fragment) => {
                             if (e.id === fragment.id) {
