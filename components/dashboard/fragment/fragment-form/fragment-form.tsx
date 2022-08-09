@@ -94,6 +94,22 @@ export default function FragmentForm({account, form, onFinish}: Props) {
                         action: fragment ? `${process.env.API_URL}/v1/fragments/file/${fragment.id}` : `${process.env.API_URL}/v1/fragments/file`,
                         method: fragment ? "PUT" : "POST",
                         headers: account.authorizationHeaders(null, true),
+                        beforeUpload: async (file) => {
+                            const types = [
+                                "text/plain",
+                                "text/markdown",
+                                "text/html",
+                                "application/json",
+                                "image/png",
+                                "image/jpeg",
+                                "image/webp",
+                                "image/gif",
+                            ];
+                            if (!types.includes(file.type)) {
+                                message.error("The content type is not supported")
+                            }
+                            return types.includes(file.type);
+                        },
                         async onChange(info) {
                             const {status} = info.file;
                             if (status === "done") {
