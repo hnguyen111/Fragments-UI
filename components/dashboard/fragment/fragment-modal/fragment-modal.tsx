@@ -76,7 +76,7 @@ export default function FragmentModal() {
     const handleCancel = () => {
         setFragment(null);
         setVisible(false);
-        setType(null)
+        setType(null);
     };
 
     return fragments.state === "hasValue"
