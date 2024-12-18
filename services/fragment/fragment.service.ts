@@ -37,7 +37,6 @@ export async function getFragmentData(account: User, id: string, mimeType = "") 
 }
 
 export async function createFragment(account: User, contentType: string, body: any) {
-    console.log(contentType);
     const response = await fetch(`${process.env.API_URL}/v1/fragments`, {
         method: "POST",
         headers: account.authorizationHeaders(contentType),

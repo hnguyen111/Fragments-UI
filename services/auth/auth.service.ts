@@ -11,9 +11,11 @@ export async function isAuthenticated() {
             username,
             idToken,
             accessToken,
-            authorizationHeaders: (type = "application/json") => {
-                const headers = {"Content-Type": type} as any;
-                headers["Authorization"] = `Bearer ${idToken}`;
+            authorizationHeaders: (type = "application/json", isFile = false) => {
+                const headers = {"Authorization": `Bearer ${idToken}`} as any;
+                if (!isFile) {
+                    headers["Content-Type"] = type;
+                }
                 return headers;
             },
         };

@@ -49,7 +49,7 @@ export default function FragmentForm({account, form, onFinish}: Props) {
             ]}
         >
             <Select onChange={value => {setType(value);}}
-                    disabled={fragment !== null}
+                    disabled={fragment !== null || option === 1}
                     style={{width: "100%"}}
             >
                 <Option value="text/plain">text/plain</Option>
@@ -91,9 +91,26 @@ export default function FragmentForm({account, form, onFinish}: Props) {
                     <Dragger {...{
                         name: "file",
                         multiple: false,
-                        action: fragment ? `${process.env.API_URL}/v1/fragments/${fragment.id}` : `${process.env.API_URL}/v1/fragments`,
+                        accept: fragment?.type,
+                        action: fragment ? `${process.env.API_URL}/v1/fragments/file/${fragment.id}` : `${process.env.API_URL}/v1/fragments/file`,
                         method: fragment ? "PUT" : "POST",
-                        headers: account.authorizationHeaders(type),
+                        headers: account.authorizationHeaders(null, true),
+                        beforeUpload: async (file) => {
+                            const types = [
+                                "text/plain",
+                                "text/markdown",
+                                "text/html",
+                                "application/json",
+                                "image/png",
+                                "image/jpeg",
+                                "image/webp",
+                                "image/gif",
+                            ];
+                            if (!types.includes(file.type)) {
+                                message.error("The content type is not supported");
+                            }
+                            return types.includes(file.type);
+                        },
                         async onChange(info) {
                             const {status} = info.file;
                             if (status === "done") {

@@ -11,6 +11,7 @@ import fragmentGetAllState from "../../../../stores/dashboard/fragment/fragment-
 import Fragment from "../../../../types/dashboard/fragments/fragment.type";
 import fragmentModalVisibilityState from "../../../../stores/dashboard/fragment/fragment-modal-visibility.state";
 import fragmentUpdateState from "../../../../stores/dashboard/fragment/fragment-update.state";
+import fragmentMimeTypeState from "../../../../stores/dashboard/fragment/fragment-mime-type.state";
 
 export default function FragmentModal() {
     const [form] = Form.useForm();
@@ -19,6 +20,7 @@ export default function FragmentModal() {
     const [visible, setVisible] = useRecoilState(fragmentModalVisibilityState);
     const [fragment, setFragment] = useRecoilState(fragmentUpdateState);
     const [fragments, setFragments] = useRecoilStateLoadable(fragmentGetAllState);
+    const [, setType] = useRecoilState(fragmentMimeTypeState);
 
     const handleOk = () => {
         setLoading(true);
@@ -73,6 +75,7 @@ export default function FragmentModal() {
     const handleCancel = () => {
         setFragment(null);
         setVisible(false);
+        setType(null);
     };
 
     return fragments.state === "hasValue"

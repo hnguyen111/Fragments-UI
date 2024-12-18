@@ -23,6 +23,7 @@ export default function FragmentTable() {
             key: "action",
             render: (target: Fragment) => {
                 return <Button onClick={() => {
+                    setSelectedFragment(null);
                     setSelectedFragment(target);
                     setFragmentContentModalVisible(true);
                 }} type="link">{target.id}</Button>;

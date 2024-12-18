@@ -6,12 +6,15 @@ import fragmentContentModalVisibilityState
     from "../../../../stores/dashboard/fragment/fragment-content-modal-visibility.state";
 import accountState from "../../../../stores/authentication/account.state";
 import fragmentUpdateState from "../../../../stores/dashboard/fragment/fragment-update.state";
+import fragmentMimeTypeState from "../../../../stores/dashboard/fragment/fragment-mime-type.state";
 
 export default function FragmentContentModal() {
     const [account] = useRecoilState(accountState);
     const [visible, setVisible] = useRecoilState(fragmentContentModalVisibilityState);
     const [, setFragment] = useRecoilState(fragmentUpdateState);
     const [loading] = useState(false);
+    const [, setType] = useRecoilState(fragmentMimeTypeState);
+
 
     const handleOk = () => {
         setVisible(false);
@@ -20,6 +23,7 @@ export default function FragmentContentModal() {
     const handleCancel = () => {
         setFragment(null);
         setVisible(false);
+        setType(null)
     };
 
     return <FormModal
